@@ -1,0 +1,23 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Rules
+- Use | cat to protect commands that causes the cli to enter vi
+- Use `docker compose` not `docker-compose` 
+- It's 2025, use modern design
+- Do not write random readme.md or tests.
+- Don't add time to branch name
+- **DO NOT GIT** unless instruced with keyword
+
+## Keyword Rules:
+When mentioned in chat
+- pr: pull master (stash and pop if needed), stage changes (always `git add .`), create a new branch, commit with message, publish, using gh: make pr target master (include `title`, `head`, and `body` to avoid hitl interaction). Branch name: `fix-...`, `feat-...`, `nv-...`, ... (something that resembles the change); go back to master after process; with proper commit message.
+- prp: push a new commit in the same pr
+- master: stash, checkout master, pull, pop
+- d: git diff | cat
+- c: stash, checkout to [branch_name], pop; default to master
+- fix [num]: goto master, using gh: get context, fix, pr, close issue with pr number; avoid interactive prompt
+- cb: delete all branches except for masters locally
+- u/update: move all the stuff that's done to `@today's date` @life.md @work.md. Also sort dates chronologically.
