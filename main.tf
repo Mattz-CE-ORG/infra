@@ -42,3 +42,4 @@ module "ls_node" {
 output "node_ip" {
   value = module.ls_node.static_ip
 }
+}
