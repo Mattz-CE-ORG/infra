@@ -5,16 +5,14 @@ variable "aws_region" {
 }
 
 variable "aws_access_key_id" {
-  description = "AWS Access Key ID (optional, can use env var)"
+  description = "AWS Access Key ID (env var or TFC var)"
   type        = string
-  default     = ""
   sensitive   = true
 }
 
 variable "aws_secret_access_key" {
-  description = "AWS Secret Access Key (optional, can use env var)"
+  description = "AWS Secret Access Key (env var or TFC var)"
   type        = string
-  default     = ""
   sensitive   = true
 }
 
