@@ -3,7 +3,13 @@ description:
 globs: 
 alwaysApply: true
 ---
-# Rules
+## Capabilties
+- `tf`/`terraform` - CLI tool that grants you access to the terraform cloud and the terraform cli.
+- `aws` - aws cli
+- `gh` - github cli
+- etc
+
+## General Rules
 - Use | cat to protect commands that causes the cli to enter vi
 - Use `docker compose` not `docker-compose` 
 - It's 2025, use modern design
