@@ -8,12 +8,15 @@ terraform {
     }
   }
 
-  # Optional: Configure backend for state management
-  # backend "s3" {
-  #   bucket = "your-terraform-state-bucket"
-  #   key    = "ars-org/terraform.tfstate"
-  #   region = "us-east-1"
-  # }
+  cloud {
+    organization = "Ars-Org"
+
+    workspaces {
+      name = "infra"
+      # This workspace is connected to GitHub repo: https://github.com/Mattz-CE-ORG/infra
+      # The repository is the source of truth for all infrastructure changes
+    }
+  }
 }
 
 provider "aws" {
@@ -24,5 +27,17 @@ provider "aws" {
   # or from AWS credentials file/instance profile
 }
 
-# Add your resources here when ready
+# Module for the first Lightsail instance
+module "ls_node" {
+  source = "./lightsail"
 
+  instance_name = "ls-node-01"
+  tags = {
+    Environment = "production"
+    Project     = "lightsail-servers"
+  }
+}
+
+output "node_ip" {
+  value = module.ls_node.static_ip
+}
