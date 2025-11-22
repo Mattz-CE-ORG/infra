@@ -1,0 +1,13 @@
+# Copy this file to terraform.tfvars and fill in your values
+# terraform.tfvars is gitignored for security
+
+aws_region = "us-east-1"
+
+# AWS credentials are read from environment variables:
+# AWS_ACCESS_KEY_ID (or AWS_ACCESS_KEY)
+# AWS_SECRET_ACCESS_KEY
+# 
+# Or you can uncomment and set them here (not recommended):
+# aws_access_key_id     = "your-access-key"
+# aws_secret_access_key = "your-secret-key"
+
