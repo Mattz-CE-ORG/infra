@@ -8,12 +8,15 @@ terraform {
     }
   }
 
-  # Optional: Configure backend for state management
-  # backend "s3" {
-  #   bucket = "your-terraform-state-bucket"
-  #   key    = "ars-org/terraform.tfstate"
-  #   region = "us-east-1"
-  # }
+  cloud {
+    organization = "Ars-Org"
+
+    workspaces {
+      name = "infra"
+      # This workspace is connected to GitHub repo: https://github.com/Mattz-CE-ORG/infra
+      # The repository is the source of truth for all infrastructure changes
+    }
+  }
 }
 
 provider "aws" {
@@ -24,5 +27,16 @@ provider "aws" {
   # or from AWS credentials file/instance profile
 }
 
-# Add your resources here when ready
+module "lsbox" {
+  source = "./lsbox"
 
+  instance_name = "lsbox-prod"
+  tags = {
+    Environment = "production"
+    Project     = "lsbox"
+  }
+}
+
+output "lsbox_static_ip" {
+  value = module.lsbox.static_ip
+}
