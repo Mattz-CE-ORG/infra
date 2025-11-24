@@ -27,3 +27,8 @@ variable "tags" {
   default     = {}
 }
 
+variable "wg_password" {
+  description = "Password for the WireGuard Web UI"
+  type        = string
+  sensitive   = true
+}

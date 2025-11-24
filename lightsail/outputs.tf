@@ -13,3 +13,7 @@ output "username" {
   value       = aws_lightsail_instance.server.username
 }
 
+output "wg_web_ui" {
+  description = "URL for WireGuard Web UI"
+  value       = "http://${aws_lightsail_static_ip.ip.ip_address}:51821"
+}

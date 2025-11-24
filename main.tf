@@ -6,6 +6,10 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 5.0"
     }
+    random = {
+      source  = "hashicorp/random"
+      version = "~> 3.0"
+    }
   }
 
   cloud {
@@ -28,11 +32,19 @@ provider "aws" {
   secret_key = var.aws_secret_access_key
 }
 
+# Generate a random password for WireGuard UI
+resource "random_password" "wg_password" {
+  length           = 16
+  special          = true
+  override_special = "_%@"
+}
+
 # Module for the first Lightsail instance
 module "ls_node" {
   source = "./lightsail"
 
   instance_name = "ls-node-01"
+  wg_password   = random_password.wg_password.result
   tags = {
     Environment = "production"
     Project     = "lightsail-servers"
@@ -41,4 +53,13 @@ module "ls_node" {
 
 output "node_ip" {
   value = module.ls_node.static_ip
+}
+
+output "secret_output" {
+  description = "Secret configuration details"
+  value = {
+    wg_web_ui  = module.ls_node.wg_web_ui
+    wg_password = random_password.wg_password.result
+  }
+  sensitive = true
 }
