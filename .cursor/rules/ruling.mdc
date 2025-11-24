@@ -4,18 +4,16 @@ globs:
 alwaysApply: true
 ---
 ## Capabilties
-- `tf`/`terraform` - CLI tool that grants you access to the terraform cloud and the terraform cli.
+- `tf`/`terraform` - CLI tool that grants you access to the terraform cloud and the terraform cli. Token under default location
 - `aws` - aws cli
 - `gh` - github cli
-- etc
+- `cf` - cloudflare cli
+- `docker` - docker cli
+- `docker compose` - docker compose cli
 
 ## General Rules
-- Your goal is to reach resolution without supervision
 - DON'T PUSH TO MASTER WITHOUT PR
-- Make sure to everything is working before making a pull request. Consider using your browsing capabiilties to verify.
-- Use `docker compose` not `docker-compose` 
 - It's 2025, use modern design
-- Do not write random readme.md or tests.
 
 ## Keyword Rules:
 When mentioned in chat

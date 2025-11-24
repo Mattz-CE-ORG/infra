@@ -11,3 +11,8 @@ aws_region = "us-east-1"
 # aws_access_key_id     = "your-access-key"
 # aws_secret_access_key = "your-secret-key"
 
+# Cloudflare API Token
+# cloudflare_api_token = "your-cloudflare-api-token"
+
+cloudflare_account_id = "6c2942b927954bc5bc97c4a511e47236"
+# cloudflare_zone_id    = "your-zone-id"
