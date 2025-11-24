@@ -3,6 +3,14 @@ description:
 globs: 
 alwaysApply: true
 ---
+## Capabilties
+- `tf`/`terraform` - CLI tool that grants you access to the terraform cloud and the terraform cli. Token under default location
+- `aws` - aws cli
+- `gh` - github cli
+- `cf` - cloudflare cli
+- `docker` - docker cli
+- `docker compose` - docker compose cli
+
 ## General Rules
 - DON'T PUSH TO MASTER WITHOUT PR
 - It's 2025, use modern design
